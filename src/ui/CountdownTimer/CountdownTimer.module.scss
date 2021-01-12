@@ -1,0 +1,20 @@
+.timer {
+  display: flex;
+  flex-wrap: wrap;
+
+  .result {
+    color: $default-red;
+    font-family: $default-font;
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: 14px;
+  }
+
+  .time {
+    color: $default-red;
+    font-family: $default-font;
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: 6px;
+  }
+}

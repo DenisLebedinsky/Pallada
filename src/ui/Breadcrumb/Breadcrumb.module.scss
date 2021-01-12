@@ -1,0 +1,32 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+
+  .item {
+    display: flex;
+    @include text();
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+
+    & a {
+      margin: 0 8px;
+      opacity: 0.7;
+      user-select: none;
+      text-decoration: none;
+      color: $default-black;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &:visited {
+        color: $default-black;
+      }
+    }
+
+    .last {
+      opacity: 1;
+    }
+  }
+}

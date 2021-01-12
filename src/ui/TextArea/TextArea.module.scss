@@ -1,0 +1,23 @@
+.textarea {
+  @include text();
+  border-radius: 6px;
+  border: 1px solid rgba(0, 114, 187, 0.4);
+  width: 100%;
+  box-sizing: border-box;
+  resize: none;
+  padding: 6px 14px;
+  font-size: 16px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: $default-black;
+    opacity: 0.4;
+  }
+}
+
+.textareaInvalid {
+  border-color: $default-red;
+}

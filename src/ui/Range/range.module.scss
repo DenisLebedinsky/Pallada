@@ -1,0 +1,51 @@
+@mixin rangeTrack {
+  width: 100%;
+  height: 5px;
+  border: none;
+  background: rgb($default-black, 0.2);
+  // background: linear-gradient(to left, rgb($default-black, 0.2) 50%, $default-black 50%);
+  border-radius: 4px;
+}
+
+@mixin rangeThumb {
+  appearance: none;
+  border: 4px solid rgb(255, 255, 255);
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  box-sizing: content-box;
+  background: $default-black;
+  cursor: pointer;
+}
+
+.range {
+  appearance: none;
+  width: 100%;
+  background: transparent;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-slider-thumb {
+    @include rangeThumb();
+    margin-top: -7px;
+  }
+
+  &::-moz-range-thumb {
+    @include rangeThumb();
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include rangeTrack();
+  }
+
+  &::-moz-range-track {
+    @include rangeTrack();
+  }
+
+  :-moz-focusring {
+    outline: 1px solid white;
+    outline-offset: -1px;
+  }
+}

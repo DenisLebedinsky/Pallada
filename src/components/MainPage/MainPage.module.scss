@@ -1,0 +1,27 @@
+.mainPage {
+  position: relative;
+  padding-top: 10px;
+
+  .labelBlock {
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(235, 244, 239, 0.8);
+    border-radius: 4px;
+  }
+
+  .label {
+    height: 280px;
+  }
+
+  .image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: bottom;
+    border-radius: 4px;
+  }
+}

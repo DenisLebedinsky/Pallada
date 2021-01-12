@@ -1,0 +1,40 @@
+// Global styles
+@import '~react-image-gallery/styles/scss/image-gallery.scss';
+@import '~video-react/styles/scss/video-react';
+@import 'vars';
+
+
+html {
+  height: 100%;
+  background: -webkit-linear-gradient(to top, #274046, #E6DADA);
+  background: linear-gradient(to bottom, #274046, #E6DADA);
+}
+
+body {
+  margin: 0;
+  font-family: Open Sans, sans-serif;
+  box-sizing: border-box;
+  min-height: 100%;
+  background: -webkit-linear-gradient(to top, #274046, #E6DADA);
+  background: linear-gradient(to bottom, #274046, #E6DADA);
+}
+
+main {
+  display: block;
+}
+
+div,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  user-select: none;
+}
+
+h2 {
+  margin-block-start: 0;
+}

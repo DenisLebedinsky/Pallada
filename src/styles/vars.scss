@@ -1,0 +1,43 @@
+// global variables available through next.config.js
+$default-black-text: rgb(52, 55, 56);
+
+$default-white: rgb(255, 255, 255);
+$default-black: rgb(0, 62, 102);
+
+$default-blue: rgb(0, 114, 187);
+$default-red: rgb(249, 96, 4);
+$default-green: rgb(55, 162, 10);
+$default-yellow: rgb(246, 221, 65);
+$default-grey: rgb(237, 238, 240);
+$default-hover: rgb(30, 145, 214);
+$default-hover-grey: rgb(218, 223, 228);
+
+$default-font: Open Sans, sans-serif;
+
+@mixin text {
+  color: $default-black;
+  font-family: $default-font;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+//mobile first
+$width-mobile: '320px';
+$width-mobile-wide: '470px';
+$width-mobile-big: '530px';
+$width-tablet: '720px';
+$width-laptop: '1024px';
+$width-desktop: '1280px';
+
+//
+@mixin mobile-hidden {
+  display: none;
+  @media screen and (min-width: $width-tablet) {
+    display: block;
+  }
+}
+@mixin mobile-show {
+  @media screen and (min-width: $width-tablet) {
+    display: none;
+  }
+}

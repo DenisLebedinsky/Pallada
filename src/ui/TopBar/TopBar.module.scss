@@ -1,0 +1,29 @@
+.topBar {
+  width: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+
+  .fakePadding {
+    width: 320px;
+
+    @media screen and (max-width: $width-desktop) {
+      display: none;
+    }
+  }
+
+  .container {
+    display: flex;
+    width: 100%;
+    max-width: 1600px;
+    align-items: center;
+    padding: 0 18px;
+    background: $default-grey;
+    height: 64px;
+    box-shadow: 0 13px 27px -5px rgba(0, 58, 140, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3),
+      0 -6px 16px -6px rgba(0, 0, 0, 0.03);
+  }
+}

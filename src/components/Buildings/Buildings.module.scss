@@ -1,0 +1,23 @@
+.buildings {
+  margin-top: 10px;
+
+  .grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+
+    justify-items: center;
+
+    @media screen and (max-width: $width-laptop) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media screen and (max-width: $width-tablet) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (max-width: $width-mobile-wide) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
