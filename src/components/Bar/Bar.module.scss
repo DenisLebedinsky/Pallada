@@ -1,0 +1,70 @@
+.bar {
+  border-radius: 4px;
+  flex-grow: 1;
+
+  .box {
+    background-color: #fff;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    //align-items: baseline;
+
+    .search {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      max-width: 300px;
+      color: #006a27;
+      border-radius: 4px;
+      padding: 3px;
+      margin-right: 10px;
+
+      &:hover {
+        background-color: #eeeeee;
+      }
+
+      .searchIcon {
+        margin: 0 10px;
+        cursor: pointer;
+      }
+
+      .inputRoot {
+      }
+
+      .inputInput {
+        color: #006a27;
+      }
+
+      @media screen and (max-width: $width-tablet) {
+       max-width: 100%;
+        width: 100%;
+      }
+    }
+  }
+
+  .title {
+    color: #006a27;
+
+    //@media screen and (max-width: $width-tablet) {
+    //  position: absolute;
+    //  top: 80px;
+    //  z-index: 10;
+    //}
+  }
+
+  .buttons {
+    color: #006a27;
+    font-family: 'Roboto', serif;
+    font-weight: bold;
+    font-size: 16px;
+
+    //@media screen and (max-width: $width-tablet) {
+    //  position: absolute;
+    //  top: 80px;
+    //  right: 10px;
+    //  z-index: 10;
+    //}
+  }
+}

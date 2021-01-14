@@ -1,17 +1,8 @@
-import { ConnectedRouter } from 'connected-next-router'
-import withReduxSaga from 'next-redux-saga'
-import withRedux from 'next-redux-wrapper'
 import App from 'next/app'
 import React from 'react'
-import { Provider } from 'react-redux'
 import 'src/styles/app.scss'
-import createStore from 'src/store'
 
-interface MyAppProps {
-  store: ReturnType<typeof createStore>
-}
-
-class FamilyTreeApp extends App<MyAppProps> {
+class PalladaApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {}
 
@@ -23,16 +14,10 @@ class FamilyTreeApp extends App<MyAppProps> {
   }
 
   render() {
-    const { Component, pageProps, store } = this.props
+    const { Component, pageProps } = this.props
 
-    return (
-      <Provider store={store}>
-        <ConnectedRouter>
-          <Component {...pageProps} />
-        </ConnectedRouter>
-      </Provider>
-    )
+    return <Component {...pageProps} />
   }
 }
 
-export default withRedux(createStore)(withReduxSaga(FamilyTreeApp))
+export default PalladaApp

@@ -1,3 +1,81 @@
-.filter{
+.filter {
   width: 100%;
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .content {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 50px;
+      justify-items: center;
+
+      .select {
+        min-width: 200px;
+
+        .price {
+          color: rgba(0, 0, 0, 0.54);
+          font-size: 14px;
+          font-family: Roboto, sans-serif;
+        }
+      }
+
+      @media screen and (max-width: $width-laptop) {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      @media screen and (max-width: $width-tablet) {
+        grid-template-columns: 1fr;
+      }
+
+      @media screen and (max-width: $width-mobile-wide) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .search {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      color: #006a27;
+      border-radius: 4px;
+      padding: 3px;
+      width: 100%;
+      max-width: 710px;
+      margin-bottom: 20px;
+      background-color: #eeeeee;
+      border: 1px solid #eeeeee;
+
+      &:hover {
+        //background-color: #eeeeee;
+        border: 1px solid #006a27;
+      }
+
+      .searchIcon {
+        margin: 0 10px;
+      }
+
+      .inputRoot {
+      }
+
+      .inputInput {
+        color: #006a27;
+      }
+    }
+
+    .control {
+      margin-top: 30px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      .button {
+        background-color: #006a27;
+        color: #ffffff;
+        margin-left: 10px;
+      }
+    }
+  }
 }

@@ -11,6 +11,45 @@
     align-items: center;
     background-color: rgba(235, 244, 239, 0.8);
     border-radius: 4px;
+
+    .imageBlock {
+      position: relative;
+
+      .title {
+        position: absolute;
+        font-family: 'Greece', Roboto, sans-serif;
+        font-size: 64px;
+        top: 44px;
+        left: 96px;
+        transform: rotate(-15deg);
+        color: #006337;
+      }
+
+      .desc{
+        position: absolute;
+        width: 220px;
+        color: #006337;
+        right: 6px;
+        bottom: -15px;
+        text-align: center;
+      }
+
+      @media screen and (max-width: $width-tablet){
+        transform: scale(0.8);
+      }
+
+      @media screen and (max-width: $width-mobile-big){
+        transform: scale(0.6);
+      }
+
+      @media screen and (max-width: $width-mobile-wide){
+        transform: scale(0.5);
+      }
+
+      @media screen and (max-width: 350px){
+        transform: scale(0.4);
+      }
+    }
   }
 
   .label {
