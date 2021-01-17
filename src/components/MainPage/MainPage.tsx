@@ -62,6 +62,7 @@ const MainPage = () => {
   const clearFilters = () => {
     setBuildings([])
     setHasMore(true)
+    setWasRequest(false)
     setOffset(0)
     setFilters(initialFilters)
     setSearch('')

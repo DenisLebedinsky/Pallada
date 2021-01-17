@@ -2,6 +2,7 @@ import { LinearProgress } from '@material-ui/core'
 import React from 'react'
 import InfiniteScroll from 'react-infinite-scroller'
 import { Buildins } from 'src/components/Buildings/types'
+import EmptyBuildings from 'src/components/EmptyBuildings'
 import MediaCard from 'src/components/MediaCard/MediaCard'
 import css from './Buildings.module.scss'
 
@@ -19,6 +20,10 @@ const Buildings = ({ buildings, hasMore, loadMore, loading }: BuildingsProps) =>
         <LinearProgress color='secondary' />
       </div>
     )
+  }
+
+  if (!loading && !buildings.length) {
+    return <EmptyBuildings />
   }
 
   return (
