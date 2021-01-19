@@ -1,0 +1,19 @@
+.propertyLabel{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #006a27;
+  margin: 10px 0;
+
+  .name{
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    color: rgba(0, 106, 39, 0.8);
+  }
+
+  .text{
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    color: #006a27;
+  }
+}

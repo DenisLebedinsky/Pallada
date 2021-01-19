@@ -7,9 +7,9 @@ export interface Buildins {
   description: string
   price: number
   status: boolean
-  locationId: string
-  districtId: string
-  realtObjectId: string
+  locationId: string | Doc
+  districtId: string | Doc
+  realtObjectId: string | Doc
   area: number
   floor: number
   sale: boolean
@@ -17,4 +17,11 @@ export interface Buildins {
   created?: string
   _id?: string
   id?: number
+}
+
+type Doc = {
+  id: string
+  name: string
+  _v?: any
+  _id?: any
 }

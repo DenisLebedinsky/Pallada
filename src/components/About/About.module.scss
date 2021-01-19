@@ -1,0 +1,83 @@
+.about {
+  padding: 10px 0;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    .logoBox {
+      max-width: 40%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .logo {
+        width: 200px;
+        height: 200px;
+        background-color: #fff;
+        border-radius: 50%;
+        border: 1px solid #fff;
+      }
+    }
+
+    .mainInfo {
+      max-width: 60%;
+      width: 100%;
+
+      h1 {
+        color: #fff;
+        font-family: Roboto, sans-serif;
+        text-align: center;
+      }
+
+      span{
+        font-family: Roboto, sans-serif;
+      }
+    }
+
+
+    @media screen and (max-width: 900px) {
+      .logoBox{
+        display: none;
+      }
+
+      .mainInfo{
+        max-width: 100%;
+      }
+    }
+  }
+
+  .rowInfo{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.58);
+    margin-top: 20px;
+    padding: 0 20px;
+    border-radius: 4px;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+    p{
+      text-align: center;
+      color: #006a27;
+      font-size: 20px;
+      font-family: Roboto, sans-serif;
+    }
+  }
+
+  .rowBottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .text{
+      color: #006a27;
+      margin: 50px;
+    }
+  }
+}

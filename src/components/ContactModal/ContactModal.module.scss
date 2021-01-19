@@ -1,0 +1,75 @@
+.contactModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  margin: calc(50vh - 200px) auto;
+  background: #fff;
+  outline: none;
+  padding: 0 10px;
+  border-radius: 4px;
+
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3{
+      color: #006a27;
+      font-family: Roboto, sans-serif;
+      font-size: 20px;
+    }
+
+    .close{
+      color: #006a27;
+      cursor: pointer;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: #000;
+
+    &:visited {
+      color: #000;
+    }
+  }
+
+  .button {
+    background-color: #006a27;
+    color: #ffffff;
+    font-family: Roboto, sans-serif;
+    margin-bottom: 20px;
+
+    &:hover {
+      color: #ffffff;
+      background-color: rgba(0, 106, 39, 0.85);
+    }
+  }
+
+  .title {
+    font-family: Roboto, sans-serif;
+    color: #006a27;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .icon {
+    margin-right: 10px;
+  }
+
+  .map{
+    width: 100%;
+    height: 150px;
+
+    .mapImage{
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}

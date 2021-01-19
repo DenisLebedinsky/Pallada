@@ -3,7 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import Typography from '@material-ui/core/Typography'
 import Head from 'next/head'
 import React, { ReactElement } from 'react'
-import GALayout from 'src/ui/GALayout'
+import GALayout from 'src/components/GALayout'
 import css from './Layout.module.scss'
 
 interface LayoutProps {

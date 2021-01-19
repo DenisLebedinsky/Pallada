@@ -120,7 +120,7 @@ const MainPage = () => {
 
   return (
     <div className={css.mainPage}>
-      <Bar />
+      <Bar main={true} />
       <div className={css.labelBlock}>
         <div className={css.imageBlock}>
           <img src={require('public/pallada.png')} alt='pallada' className={css.label} />

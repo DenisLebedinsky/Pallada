@@ -1,5 +1,6 @@
-import ReactGA from 'react-ga'
 import getConfig from 'next/config'
+import ReactGA from 'react-ga'
+
 const { publicRuntimeConfig } = getConfig()
 const getGATag = () => publicRuntimeConfig.GA_TAG
 

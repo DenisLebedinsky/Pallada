@@ -1,0 +1,90 @@
+.buildingsDetails {
+  margin-top: 20px;
+  background-color: #fff;
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  border-radius: 4px;
+  padding: 10px 20px;
+
+  .header{
+    display: flex;
+    align-items: center;
+
+    .back{
+      margin-right: 30px;
+      text-transform: capitalize;
+    }
+
+    h1 {
+      color: #006a27;
+    }
+
+    @media screen and (max-width: $width-laptop){
+      .back{   display: none;}
+      h1{
+        font-size: 22px;
+      }
+    }
+  }
+
+  .title {
+    font-family: Roboto, sans-serif;
+  }
+
+  .firstRow {
+    display: flex;
+    justify-content: space-between;
+
+    .viewer {
+      width: 800px;
+    }
+
+    .info {
+      width: 30%;
+      padding: 0 10px;
+
+      .contact{
+        margin-top: 52px;
+        display: flex;
+        justify-content: center;
+
+        .button{
+          background-color: #006a27;
+          color: #fff;
+        }
+      }
+    }
+
+    @media screen and (max-width: $width-laptop) {
+      flex-direction: column;
+
+      .viewer {
+        width: 100%;
+      }
+      .info {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  }
+
+  .secondRow {
+    display: flex;
+    width: 100%;
+    position: relative;
+
+    .desc {
+      margin-top: 10px;
+      color: #006a27;
+      font-family: Roboto, sans-serif;
+      font-size: 18px;
+      width: 800px;
+    }
+
+    @media screen and (max-width: $width-laptop) {
+      .desc {
+        width: 100%;
+      }
+    }
+  }
+}
