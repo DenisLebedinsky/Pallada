@@ -1,0 +1,22 @@
+.imageCard {
+  position: relative;
+  cursor: pointer;
+
+  .image {
+    //width: 290px;
+    //height: 200px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .checkIcon {
+    color: #006a27;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background: #ffffff;
+    border-radius: 50%;
+  }
+}

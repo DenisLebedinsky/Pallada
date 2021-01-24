@@ -21,17 +21,31 @@ const ContactModal: React.FC<ContactModalProps> = ({ open, handleClose }) => {
         </div>
 
         <span className={css.title}>Вы можете позвонить нам</span>
-        <a href='tel:+79094533166'>
-          <Button variant='contained' className={css.button}>
-            <PhoneIcon className={css.icon} />
-            +7(909)-453-31-66
-          </Button>
-        </a>
+        <div className={css.tel}>
+          <a href='tel:+79094533166'>
+            <Button variant='contained' className={css.button}>
+              <PhoneIcon className={css.icon} />
+              +7(909)-453-31-66
+            </Button>
+          </a>
+          <span className={css.dep}>отдел продаж</span>
+        </div>
+
+        <div className={css.tel}>
+          <a href='tel:+79182983448'>
+            <Button variant='contained' className={css.button}>
+              <PhoneIcon className={css.icon} />
+              +7(918)-298-34-48
+            </Button>
+          </a>
+          <span className={css.dep}>юридический отдел</span>
+        </div>
+
         <span className={css.title}>Написать на электронную почту</span>
-        <a href='mailto:palladahome@gmail.com'>
+        <a href='mailto:pallada-eysk@yandex.ru'>
           <Button variant='contained' className={css.button}>
             <MailIcon className={css.icon} />
-            palladahome@gmail.com
+            pallada-eysk@yandex.ru
           </Button>
         </a>
 

@@ -1,0 +1,53 @@
+.uploader {
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 260px;
+    border-radius: 4px;
+    border: 1px dashed #006a27;
+    cursor: pointer;
+
+    &:hover {
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+
+      .icon {
+        color: #ffffff;
+      }
+    }
+
+    .icon {
+      width: 40px;
+      height: 40px;
+      color: #006a27;
+    }
+
+    .formButton {
+      background-color: #ffffff;
+      color: #006a27;
+      border-radius: 4px;
+      padding: 4px 10px;
+      margin: 10px 0;
+    }
+
+    .input {
+      display: none;
+    }
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

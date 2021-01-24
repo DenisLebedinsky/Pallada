@@ -1,0 +1,34 @@
+.admin {
+  padding-top: 10px;
+
+  h1 {
+    color: #ffffff;
+    font-family: Roboto, sans-serif;
+  }
+
+  .tabs {
+    background-color: #ffffff;
+    color: #000;
+    border-bottom: 0.5px solid #333;
+  }
+
+  .tab {
+    background-color: #ffffff;
+  }
+
+  .mobileNav {
+    padding-top: 10px;
+    width: 100%;
+    overflow-x: auto;
+
+    @media screen and (max-width: $width-mobile-wide) {
+      button {
+        padding: 0;
+      }
+
+      span span {
+        display: none;
+      }
+    }
+  }
+}

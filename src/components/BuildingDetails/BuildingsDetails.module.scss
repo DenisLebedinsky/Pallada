@@ -6,11 +6,11 @@
   border-radius: 4px;
   padding: 10px 20px;
 
-  .header{
+  .header {
     display: flex;
     align-items: center;
 
-    .back{
+    .back {
       margin-right: 30px;
       text-transform: capitalize;
     }
@@ -19,9 +19,11 @@
       color: #006a27;
     }
 
-    @media screen and (max-width: $width-laptop){
-      .back{   display: none;}
-      h1{
+    @media screen and (max-width: $width-laptop) {
+      .back {
+        display: none;
+      }
+      h1 {
         font-size: 22px;
       }
     }
@@ -43,14 +45,22 @@
       width: 30%;
       padding: 0 10px;
 
-      .contact{
+      .contact {
         margin-top: 52px;
         display: flex;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
 
-        .button{
+        .button {
           background-color: #006a27;
           color: #fff;
+          width: 175px;
+        }
+
+        .edit {
+          width: 175px;
+          margin-top: 10px;
         }
       }
     }

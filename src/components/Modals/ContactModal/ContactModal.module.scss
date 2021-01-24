@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: 400px;
-  height: 400px;
+  height: 458px;
   margin: calc(50vh - 200px) auto;
   background: #fff;
   outline: none;
@@ -16,13 +16,13 @@
     justify-content: space-between;
     align-items: center;
 
-    h3{
+    h3 {
       color: #006a27;
       font-family: Roboto, sans-serif;
       font-size: 20px;
     }
 
-    .close{
+    .close {
       color: #006a27;
       cursor: pointer;
     }
@@ -41,7 +41,7 @@
     background-color: #006a27;
     color: #ffffff;
     font-family: Roboto, sans-serif;
-    margin-bottom: 20px;
+    //margin-bottom: 20px;
 
     &:hover {
       color: #ffffff;
@@ -57,15 +57,31 @@
     margin-bottom: 20px;
   }
 
+  .tel {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-left: 20px;
+    margin-bottom: 20px;
+
+    .dep {
+      margin-left: 10px;
+      font-family: Roboto, sans-serif;
+      color: #5f5e5e;
+    }
+  }
+
   .icon {
     margin-right: 10px;
   }
 
-  .map{
+  .map {
+    margin-top: 20px;
     width: 100%;
     height: 150px;
 
-    .mapImage{
+    .mapImage {
       height: 100%;
       width: 100%;
       object-fit: cover;

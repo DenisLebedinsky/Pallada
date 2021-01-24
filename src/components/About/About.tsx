@@ -2,7 +2,7 @@ import { Button, Chip } from '@material-ui/core'
 import DoneIcon from '@material-ui/icons/Done'
 import React, { useState } from 'react'
 import Bar from 'src/components/Bar'
-import ContactModal from 'src/components/ContactModal'
+import ContactModal from 'src/components/Modals/ContactModal'
 import css from './About.module.scss'
 
 const About: React.FC = () => {

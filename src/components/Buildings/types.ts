@@ -1,6 +1,6 @@
-export interface Buildins {
+export interface Building {
   images: string[]
-  categoryId: string
+  categoryId: string | Doc
   name: string
   email: string
   tel: string

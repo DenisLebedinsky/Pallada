@@ -1,0 +1,37 @@
+.login {
+  height: 100vh;
+  width: 100%;
+
+  .image {
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .paper {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    //@media screen and (min-width: $width-tablet) {
+    padding: 30% 20px;
+    //}
+
+    .avatar {
+      margin: 10px;
+      background-color: #006a27;
+    }
+
+    .form {
+      width: 100%;
+      margin-top: 5px;
+      padding: 20px;
+    }
+
+    .submit {
+      margin-top: 10px;
+    }
+  }
+}

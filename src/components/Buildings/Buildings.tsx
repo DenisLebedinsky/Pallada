@@ -1,19 +1,20 @@
 import { LinearProgress } from '@material-ui/core'
 import React from 'react'
 import InfiniteScroll from 'react-infinite-scroller'
-import { Buildins } from 'src/components/Buildings/types'
+import { Building } from 'src/components/Buildings/types'
 import EmptyBuildings from 'src/components/EmptyBuildings'
 import MediaCard from 'src/components/MediaCard/MediaCard'
 import css from './Buildings.module.scss'
 
 interface BuildingsProps {
-  buildings: Buildins[]
+  buildings: Building[]
   hasMore: boolean
   loadMore: () => void
   loading: boolean
+  adminMode?: boolean
 }
 
-const Buildings = ({ buildings, hasMore, loadMore, loading }: BuildingsProps) => {
+const Buildings = ({ buildings, hasMore, loadMore, loading, adminMode }: BuildingsProps) => {
   if (loading && !buildings.length) {
     return (
       <div className={css.buildings}>
@@ -30,8 +31,8 @@ const Buildings = ({ buildings, hasMore, loadMore, loading }: BuildingsProps) =>
     <div className={css.buildings}>
       {!!buildings.length && (
         <InfiniteScroll className={css.grid} pageStart={0} loadMore={loadMore} hasMore={hasMore}>
-          {buildings.map((building: Buildins, index) => (
-            <MediaCard key={index} building={building} />
+          {buildings.map((building: Building, index) => (
+            <MediaCard key={index} building={building} adminMode={adminMode} />
           ))}
         </InfiniteScroll>
       )}

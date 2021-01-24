@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Bar from 'src/components/Bar'
 import Buildings from 'src/components/Buildings'
-import { Buildins } from 'src/components/Buildings/types'
+import { Building } from 'src/components/Buildings/types'
 import Filter from 'src/components/Filter/Filter'
 import { FiltersFields } from 'src/components/MainPage/types'
 import api from 'src/utils/api'
@@ -32,7 +32,7 @@ const MainPage = () => {
   const [filters, setFilters] = useState(initialFilters)
   const [price, setPrice] = useState<number[]>(initialPrice)
 
-  const [buildings, setBuildings] = useState<Buildins[]>([])
+  const [buildings, setBuildings] = useState<Building[]>([])
   const [wasRequest, setWasRequest] = useState(false)
 
   const [loading, setLoading] = useState(false)
@@ -79,6 +79,7 @@ const MainPage = () => {
     try {
       const result = await api.post('/house/more', {
         offset,
+        status: true,
         search: filters.search,
         categoryId: filters.floor,
         locationId: filters.location,

@@ -1,4 +1,4 @@
-import axios, { AxiosError } from 'axios'
+import axios from 'axios'
 // import { OptionsObject, SnackbarKey, SnackbarMessage } from 'notistack'
 import { BASE_URL } from 'src/utils/secrets'
 
@@ -9,25 +9,32 @@ const api = axios.create({
   // withCredentials: true,
 })
 
-const configureInterceptors = () => {
-  api.interceptors.response.use(
-    (config) => config,
-    (error: AxiosError) => {
-      if (error.message === 'Network Error') {
-        console.log('REQUEST ERROR')
-        // showSnackbar('Network Error', {
-        //   variant: 'error',
-        //   action: NotificationAction,
-        // })
+api.interceptors.request.use(function (config) {
+  const token = localStorage.getItem('ids')
+  config.headers.Authorization = `bearer ${token}`
 
-        return
-      }
+  return config
+})
 
-      return Promise.reject(error)
-    }
-  )
-}
+// const configureInterceptors = () => {
+//   api.interceptors.response.use(
+//     (config) => config,
+//     (error: AxiosError) => {
+//       if (error.message === 'Network Error') {
+//         console.log('REQUEST ERROR')
+//         // showSnackbar('Network Error', {
+//         //   variant: 'error',
+//         //   action: NotificationAction,
+//         // })
+//
+//         return
+//       }
+//
+//       return Promise.reject(error)
+//     }
+//   )
+// }
 
 export default api
 
-export { configureInterceptors }
+// export { configureInterceptors }
