@@ -1,3 +1,4 @@
+import { Box } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import MenuItem from '@material-ui/core/MenuItem'
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace'
@@ -6,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import MediaEditor from 'src/components/Admin/MediaEditor'
 import { Building } from 'src/components/Buildings/types'
+import { useSnackBars } from 'src/hooks/useSnackBars'
 import FormInput from 'src/ui/FormInput'
 import ReactHookFormSelect from 'src/ui/ReactHookFormSelect'
 import api from 'src/utils/api'
@@ -13,6 +15,9 @@ import { emailValidationRegExp, phoneValidationRegExp } from 'src/utils/validati
 import css from './EditBuilding.module.scss'
 
 const EditBuilding = () => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+  // @ts-ignore
+  const { addAlert } = useSnackBars()
   const [building, setBuilding] = useState<Building | null>(null)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { query, replace } = useRouter()
@@ -25,7 +30,7 @@ const EditBuilding = () => {
   const [floorList, setFloorList] = useState([])
   const [images, setImages] = useState<string[]>([])
 
-  const { register, handleSubmit, control, setValue, watch } = useForm({
+  const { register, handleSubmit, control, setValue } = useForm({
     mode: 'onChange',
   })
 
@@ -37,7 +42,7 @@ const EditBuilding = () => {
         setLocationsList(res.data)
       }
     } catch (e) {
-      console.log('error locations', e)
+      addAlert(`ошибка загрузки ${e}`)
     }
   }
 
@@ -49,7 +54,7 @@ const EditBuilding = () => {
         setDistrictList(res.data)
       }
     } catch (e) {
-      console.log('error district', e)
+      addAlert(`ошибка загрузки ${e}`)
     }
   }
 
@@ -61,7 +66,7 @@ const EditBuilding = () => {
         setRealtObjectList(res.data)
       }
     } catch (e) {
-      console.log('error realt object', e)
+      addAlert(`ошибка загрузки ${e}`)
     }
   }
 
@@ -73,7 +78,7 @@ const EditBuilding = () => {
         setFloorList(res.data)
       }
     } catch (e) {
-      console.log('error floor', e)
+      addAlert(`ошибка загрузки ${e}`)
     }
   }
 
@@ -94,7 +99,7 @@ const EditBuilding = () => {
         setValue('location', _building?.locationId?.id || '')
         setValue('district', _building?.districtId?.id || '')
         setValue('realtObject', _building?.realtObjectId?.id || '')
-        setValue('floor', _building?.categoryId || '')
+        setValue('floor', _building?.categoryId.id || '')
         setValue('deal', _building?.sale === 'true' || 'true')
         setValue('priority', _building.priority === 'true' || 'false')
         if (_building.images) {
@@ -102,7 +107,7 @@ const EditBuilding = () => {
         }
       }
     } catch (e) {
-      console.log('error')
+      addAlert(`не удалось получить информацию  ${e}`)
     }
   }
 
@@ -151,21 +156,45 @@ const EditBuilding = () => {
     }
   }
 
-  const editBuildingRequest = async (mapData) => {
-    console.log('mapData', mapData)
+  const onDelete = async () => {
+    try {
+      const res = api.delete(`/house/${building?.id}`)
 
+      if (res) {
+        addAlert(`объявление удалено`)
+        replace('/admin')
+      }
+    } catch (e) {
+      addAlert(`не удалось удалить`)
+    }
+  }
+
+  const editBuildingRequest = async (mapData) => {
     try {
       const result = await api.patch('/house/update', mapData)
 
-      console.log('result', result)
       if (result?.status == 200) {
+        addAlert(`изменения сохранены`)
         push('/admin')
       }
-    } catch (e) {}
+    } catch (e) {
+      addAlert(`не удалось сохранить изменения`)
+    }
   }
 
   const addNewBuilding = async (mapData) => {
-    console.log('ma', mapData)
+    console.log('create', mapData)
+
+    try {
+      const result = await api.post('/house', { ...mapData, status: false })
+
+      if (result?.status == 200) {
+        addAlert(`новые данные добавлены`)
+        push('/admin')
+      }
+    } catch (e) {
+      addAlert(`не удалось добавить данные`)
+    }
   }
 
   const addImage = (src: string) => {
@@ -191,7 +220,7 @@ const EditBuilding = () => {
     }
   }, [])
 
-  //load realt object
+  //load object
   useEffect(() => {
     if (!districtList.length) {
       loadRealtObject()
@@ -205,7 +234,7 @@ const EditBuilding = () => {
     }
   }, [])
 
-  //load buiding data
+  //load building data
   useEffect(() => {
     if (!building) {
       loadData()
@@ -219,15 +248,15 @@ const EditBuilding = () => {
     }
   }, [])
 
-  console.log('watch', watch('name'))
-
   return (
     <div className={css.editBuilding}>
       <div className={css.header}>
         <Button className={css.back} onClick={back}>
           <KeyboardBackspaceIcon /> Назад
         </Button>
-        <h1 className={css.title}>Редактирование: {building?.name}</h1>
+        <h1 className={css.title}>
+          {id ? 'Редактирование:' : 'Создание объявления'} {building?.name}
+        </h1>
       </div>
 
       <MediaEditor images={images} addImage={addImage} deleteImages={deleteImage} />
@@ -381,9 +410,16 @@ const EditBuilding = () => {
           <MenuItem value={'false'}>Обычный</MenuItem>
         </ReactHookFormSelect>
 
-        <Button type='submit' className={css.save}>
-          Сохранить
-        </Button>
+        <Box display='flex'>
+          {building?.id && (
+            <Button type='button' className={css.delete} onClick={onDelete}>
+              Удалить
+            </Button>
+          )}
+          <Button type='submit' className={css.save}>
+            Сохранить
+          </Button>
+        </Box>
       </form>
     </div>
   )

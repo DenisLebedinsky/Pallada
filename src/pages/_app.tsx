@@ -1,6 +1,7 @@
 import App from 'next/app'
 import React from 'react'
 import 'src/styles/app.scss'
+import { SnackBarProvider } from 'src/components/SnackProvider/SnackProvider'
 
 class PalladaApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -16,7 +17,11 @@ class PalladaApp extends App {
   render() {
     const { Component, pageProps } = this.props
 
-    return <Component {...pageProps} />
+    return (
+      <SnackBarProvider>
+        <Component {...pageProps} />
+      </SnackBarProvider>
+    )
   }
 }
 

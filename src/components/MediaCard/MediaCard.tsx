@@ -8,7 +8,7 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import { Building } from 'src/components/Buildings/types'
 import api from 'src/utils/api'
-import { priceSeparate } from 'src/utils/converter'
+import { makeImagePath, priceSeparate } from 'src/utils/converter'
 import css from './MediaCard.module.scss'
 
 interface MediaCardProps {
@@ -18,6 +18,7 @@ interface MediaCardProps {
 
 export default function MediaCard({ building, adminMode }: MediaCardProps) {
   const [activated, setActivated] = useState(false)
+  const [imgError, setImageError] = useState(false)
 
   const activate = async () => {
     try {
@@ -37,15 +38,20 @@ export default function MediaCard({ building, adminMode }: MediaCardProps) {
     return null
   }
 
+  const onImageError = () => {
+    setImageError(true)
+  }
+
+  const avatar =
+    building?.images.length && !imgError
+      ? makeImagePath(building.images[0])
+      : makeImagePath('empty.jpg')
+
   return (
     <Card className={css.card}>
       <Link href={`/buildings/[id]`} as={`/buildings/${building.id}`}>
         <CardActionArea className={css.mediaArea}>
-          <img
-            src='http://ovz3.palladahome.no45p.vps.myjino.ru:49414/images(11).jpeg'
-            alt=''
-            className={css.media}
-          />
+          <img src={avatar} alt='' className={css.media} onError={onImageError} />
         </CardActionArea>
       </Link>
       <CardActions>

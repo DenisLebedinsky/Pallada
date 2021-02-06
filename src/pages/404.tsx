@@ -1,10 +1,11 @@
 import { ReactElement } from 'react'
 import Layout from 'src/components/Layout'
+import PageNotFound from 'src/components/PageNotFound'
 
 export default function Error404(): ReactElement {
   return (
     <Layout>
-      <span>error 404</span>
+      <PageNotFound />
     </Layout>
   )
 }

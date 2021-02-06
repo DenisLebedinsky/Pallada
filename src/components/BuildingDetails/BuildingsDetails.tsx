@@ -7,7 +7,7 @@ import { Building } from 'src/components/Buildings/types'
 import ContactModal from 'src/components/Modals/ContactModal'
 import PropertyLabel from 'src/ui/PropertyLabel/PropertyLabel'
 import api from 'src/utils/api'
-import { priceSeparate } from 'src/utils/converter'
+import { makeImagePath, priceSeparate } from 'src/utils/converter'
 import css from './BuildingsDetails.module.scss'
 
 const BuildingsDetails = () => {
@@ -18,21 +18,6 @@ const BuildingsDetails = () => {
   const id = query.id
   const [contactModal, setContactModal] = useState(false)
   const [isAdmin, setIsAdmin] = useState(false)
-
-  const images = [
-    {
-      original: 'https://picsum.photos/id/1018/1000/600/',
-      thumbnail: 'https://picsum.photos/id/1018/250/150/',
-    },
-    {
-      original: 'https://picsum.photos/id/1015/1000/600/',
-      thumbnail: 'https://picsum.photos/id/1015/250/150/',
-    },
-    {
-      original: 'https://picsum.photos/id/1019/1000/600/',
-      thumbnail: 'https://picsum.photos/id/1019/250/150/',
-    },
-  ]
 
   const loadData = async () => {
     try {
@@ -58,6 +43,16 @@ const BuildingsDetails = () => {
     }
   }, [])
 
+  const images = data?.images?.length
+    ? data.images.map((src) => {
+        const newSrc = makeImagePath(src)
+        return {
+          original: newSrc,
+          thumbnail: newSrc,
+        }
+      })
+    : []
+
   return (
     <div className={css.buildingsDetails}>
       <div className={css.header}>
@@ -74,6 +69,7 @@ const BuildingsDetails = () => {
             items={images}
             originalClass={'image-viewer'}
             showPlayButton={false}
+            onErrorImageURL={makeImagePath('empty.jpg')}
           />
 
           <div className={css.secondRow}>
@@ -83,7 +79,7 @@ const BuildingsDetails = () => {
 
         <div className={css.info}>
           <PropertyLabel name='Вид услуг' text={data?.sale ? 'Продажа' : 'Аренда'} />
-          <PropertyLabel name='Цена' text={priceSeparate(data?.price)} />
+          <PropertyLabel name='Цена' text={`${priceSeparate(data?.price)} руб.`} />
           <PropertyLabel
             name='Населенный пункт'
             text={(typeof data?.locationId == 'object' && data.locationId.name) || ''}
@@ -97,7 +93,10 @@ const BuildingsDetails = () => {
             text={(typeof data?.realtObjectId == 'object' && data.realtObjectId.name) || ''}
           />
           <PropertyLabel name='Площадь' text={`${data?.area} кв/м` || ''} />
-          <PropertyLabel name='Этажность' text={`${data?.categoryId?.name}` || ''} />
+          <PropertyLabel
+            name='Этажность'
+            text={`${typeof data?.categoryId !== 'string' && data?.categoryId?.name}` || ''}
+          />
 
           <div className={css.contact}>
             <Button

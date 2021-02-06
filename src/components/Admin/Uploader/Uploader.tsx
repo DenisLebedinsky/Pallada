@@ -79,7 +79,7 @@ const Uploader: React.FC<UploaderProps> = ({ afterLoad }) => {
           id='image-loader'
           type='file'
           className={css.input}
-          accept='image/x-png,image/jpeg'
+          accept='image/gif,image/jpeg,application/pdf,image/png, image/x-png,image/jpeg'
           onChange={onChange}
         />
       </form>
