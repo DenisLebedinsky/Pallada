@@ -1,8 +1,9 @@
-import { BottomNavigationAction } from '@material-ui/core'
+import { BottomNavigationAction, Button } from '@material-ui/core'
 import BottomNavigation from '@material-ui/core/BottomNavigation'
 import Box from '@material-ui/core/Box'
 import AddCircleIcon from '@material-ui/icons/AddCircle'
 import DomainIcon from '@material-ui/icons/Domain'
+import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import HomeIcon from '@material-ui/icons/Home'
 import LocationOnIcon from '@material-ui/icons/LocationOn'
 import MapIcon from '@material-ui/icons/Map'
@@ -39,7 +40,12 @@ function TabPanel(props: TabPanelProps) {
 
 export default function AdminTabs() {
   const [value, setValue] = useState(0)
-  const { push } = useRouter()
+  const { push, replace } = useRouter()
+
+  const logout = () => {
+    localStorage.removeItem('ids')
+    replace('/admin/login')
+  }
 
   useEffect(() => {
     const token = localStorage.getItem('ids')
@@ -50,7 +56,12 @@ export default function AdminTabs() {
 
   return (
     <div className={css.admin}>
-      <h1>Панель администратора</h1>
+      <div className={css.header}>
+        <h1>Панель администратора</h1>
+        <Button className={css.btn} onClick={logout}>
+          выйти <ExitToAppIcon className={css.exit} />
+        </Button>
+      </div>
 
       <BottomNavigation
         value={value}

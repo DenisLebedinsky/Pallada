@@ -1,9 +1,25 @@
 .admin {
   padding-top: 10px;
 
-  h1 {
-    color: #ffffff;
-    font-family: Roboto, sans-serif;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      color: #ffffff;
+      font-family: Roboto, sans-serif;
+    }
+    .btn {
+      color: #ffffff;
+      font-family: Roboto, sans-serif;
+      font-weight: bold;
+
+      .exit {
+        color: #ffffff;
+        margin-left: 5px;
+      }
+    }
   }
 
   .tabs {
@@ -14,6 +30,7 @@
 
   .tab {
     background-color: #ffffff;
+    min-height: 80vh;
   }
 
   .mobileNav {
