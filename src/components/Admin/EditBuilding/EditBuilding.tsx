@@ -222,7 +222,7 @@ const EditBuilding = () => {
 
   //load object
   useEffect(() => {
-    if (!districtList.length) {
+    if (!realtObjectList.length) {
       loadRealtObject()
     }
   }, [])

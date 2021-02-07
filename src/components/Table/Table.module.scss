@@ -1,3 +1,15 @@
 .table {
   width: 100%;
+
+  .row {
+    cursor: pointer;
+
+    &:hover {
+      background-color: $default-grey;
+    }
+
+    .deleteIcon {
+      color: #e73c7e;
+    }
+  }
 }

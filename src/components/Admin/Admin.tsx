@@ -64,7 +64,7 @@ export default function AdminTabs() {
         <BottomNavigationAction label='Населенные пункты' icon={<LocationOnIcon />} />
         <BottomNavigationAction label='Районы' icon={<MapIcon />} />
         <BottomNavigationAction label='Этажность' icon={<DomainIcon />} />
-        <BottomNavigationAction label='Объекты недвижимости' icon={<HomeIcon />} />
+        <BottomNavigationAction label='Объекты' icon={<HomeIcon />} />
       </BottomNavigation>
 
       <TabPanel value={value} index={0} className={css.tab}>

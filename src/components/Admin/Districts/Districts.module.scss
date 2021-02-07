@@ -1,2 +1,30 @@
 .districts {
+  padding: 10px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    h2 {
+      color: #006a27;
+    }
+
+    .create {
+      height: 40px;
+      color: #006a27;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+
+      .createIcon {
+        margin-right: 5px;
+        color: #006a27;
+      }
+    }
+  }
 }

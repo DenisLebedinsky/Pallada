@@ -98,6 +98,20 @@ const BuildingsDetails = () => {
             text={`${typeof data?.categoryId !== 'string' && data?.categoryId?.name}` || ''}
           />
 
+          {data?.email && (
+            <PropertyLabel
+              name='email'
+              text={`${typeof data?.email !== 'string' ? '' : data.email}`}
+            />
+          )}
+
+          {data?.tel && (
+            <PropertyLabel
+              name='Этажность'
+              text={`${typeof data?.tel !== 'string' ? '' : data.tel}`}
+            />
+          )}
+
           <div className={css.contact}>
             <Button
               variant='contained'

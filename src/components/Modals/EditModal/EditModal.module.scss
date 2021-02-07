@@ -1,0 +1,74 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  height: 240px;
+  margin: calc(50vh - 200px) auto;
+  background: #fff;
+  outline: none;
+  padding: 0 10px;
+  border-radius: 4px;
+
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+      color: #006a27;
+      font-family: Roboto, sans-serif;
+      font-size: 20px;
+    }
+
+    .close {
+      color: #006a27;
+      cursor: pointer;
+    }
+  }
+
+  .editor {
+    width: 100%;
+    margin: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .controls {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+
+      .delete {
+        margin-right: 20px;
+        color: red;
+      }
+      .button {
+        background-color: #006a27;
+        color: #ffffff;
+        font-family: Roboto, sans-serif;
+        //margin-bottom: 20px;
+
+        &:hover {
+          color: #ffffff;
+          background-color: rgba(0, 106, 39, 0.85);
+        }
+      }
+    }
+  }
+
+  .title {
+    font-family: Roboto, sans-serif;
+    color: #006a27;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .icon {
+    margin-right: 10px;
+  }
+}

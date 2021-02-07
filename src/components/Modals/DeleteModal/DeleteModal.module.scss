@@ -1,0 +1,57 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  //align-items: center;
+  justify-content: space-between;
+  width: 400px;
+  height: 240px;
+  margin: calc(50vh - 200px) auto;
+  background: #fff;
+  outline: none;
+  padding: 0 10px;
+  border-radius: 4px;
+
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+      color: #006a27;
+      font-family: Roboto, sans-serif;
+      font-size: 20px;
+    }
+
+    .close {
+      color: #006a27;
+      cursor: pointer;
+    }
+  }
+
+  .controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+
+    .delete {
+      margin-right: 20px;
+      color: #ffffff;
+      background-color: red;
+      margin-left: 10px;
+    }
+  }
+}
+
+.title {
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #5f5e5e;
+}
+
+.icon {
+  margin-right: 10px;
+}
