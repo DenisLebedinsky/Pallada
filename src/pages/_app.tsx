@@ -4,15 +4,15 @@ import 'src/styles/app.scss'
 import { SnackBarProvider } from 'src/components/SnackProvider/SnackProvider'
 
 class PalladaApp extends App {
-  // static async getInitialProps({ Component, ctx }) {
-  //   let pageProps = {}
-  //
-  //   if (Component.getInitialProps) {
-  //     pageProps = await Component.getInitialProps(ctx)
-  //   }
-  //
-  //   return { pageProps }
-  // }
+  static async getInitialProps({ Component, ctx }) {
+    let pageProps = {}
+
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx)
+    }
+
+    return { pageProps }
+  }
 
   render() {
     const { Component, pageProps } = this.props

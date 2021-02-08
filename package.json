@@ -5,8 +5,8 @@
   "scripts": {
     "lint": "eslint ./ --ext .js,.jsx,.ts,.tsx --fix",
     "dev": "next dev",
-    "build": "next build && next export",
-    "start": "next start -p 7777",
+    "build": "next build",
+    "start": "next start -p 80",
     "debug": "NODE_OPTIONS='--inspect' next dev"
   },
   "husky": {
