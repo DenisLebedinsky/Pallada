@@ -83,6 +83,7 @@ const EditBuilding = () => {
   }
 
   const loadData = async () => {
+    if (!id) return
     try {
       const res = await api.get(`/house/${id}`)
 
@@ -183,15 +184,11 @@ const EditBuilding = () => {
   }
 
   const addNewBuilding = async (mapData) => {
-    console.log('create', mapData)
-
     try {
-      const result = await api.post('/house', { ...mapData, status: false })
+      await api.post('/house', { ...mapData, status: false })
 
-      if (result?.status == 200) {
-        addAlert(`новые данные добавлены`)
-        push('/admin')
-      }
+      addAlert(`новые данные добавлены`)
+      push('/admin')
     } catch (e) {
       addAlert(`не удалось добавить данные`)
     }

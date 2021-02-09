@@ -5,6 +5,7 @@ import { Building } from 'src/components/Buildings/types'
 import Filter from 'src/components/Filter/Filter'
 import { FiltersFields } from 'src/components/MainPage/types'
 import api from 'src/utils/api'
+import concatBuildings from 'src/utils/concat'
 import css from './MainPage.module.scss'
 
 const MainPage = () => {
@@ -92,7 +93,7 @@ const MainPage = () => {
       if (result?.data?.house) {
         //concat with current data
         if (result?.data?.house.length) {
-          const newBuildings = buildings.concat(result.data.house)
+          const newBuildings = concatBuildings(result.data.house, buildings)
           setBuildings(newBuildings)
           setOffset(offset + 20)
         } else {

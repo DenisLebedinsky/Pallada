@@ -5,6 +5,10 @@
   .media {
     display: flex;
 
+    @media screen and (max-width: $width_tablet) {
+      flex-direction: column;
+    }
+
     .images {
       width: 100%;
       display: flex;
@@ -12,6 +16,11 @@
       margin-left: 10px;
       border-left: 1px solid #006a27;
       padding-bottom: 30px;
+
+      @media screen and (max-width: $width_tablet) {
+        margin-left: 0;
+        border-left: none;
+      }
 
       .loadControl {
         display: flex;
