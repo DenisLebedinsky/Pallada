@@ -2,14 +2,13 @@ import { Button } from '@material-ui/core'
 import Modal from '@material-ui/core/Modal'
 import CloseIcon from '@material-ui/icons/Close'
 import * as React from 'react'
-import { ModalItem } from 'src/components/Modals/EditModal/types'
 import css from './DeleteModal.module.scss'
 
 type Props = {
   open: true
   handleClose: () => void
   onDelete: () => void
-  item?: ModalItem
+  item?: any
 }
 
 export default function ({ open, handleClose, onDelete, item }: Props) {

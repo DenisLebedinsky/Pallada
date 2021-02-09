@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import MediaEditor from 'src/components/Admin/MediaEditor'
 import { Building } from 'src/components/Buildings/types'
+import DeleteModal from 'src/components/Modals/DeleteModal/DeleteModal'
 import { useSnackBars } from 'src/hooks/useSnackBars'
 import FormInput from 'src/ui/FormInput'
 import ReactHookFormSelect from 'src/ui/ReactHookFormSelect'
@@ -19,6 +20,8 @@ const EditBuilding = () => {
   // @ts-ignore
   const { addAlert } = useSnackBars()
   const [building, setBuilding] = useState<Building | null>(null)
+  const [deleteModal, setDeleteModal] = useState(false)
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { query, replace } = useRouter()
   const id = query.id
@@ -155,6 +158,14 @@ const EditBuilding = () => {
     } else {
       addNewBuilding(mapData)
     }
+  }
+
+  const handleDellete = () => {
+    setDeleteModal(true)
+  }
+
+  const closeDelete = () => {
+    setDeleteModal(false)
   }
 
   const onDelete = async () => {
@@ -409,7 +420,7 @@ const EditBuilding = () => {
 
         <Box display='flex'>
           {building?.id && (
-            <Button type='button' className={css.delete} onClick={onDelete}>
+            <Button type='button' className={css.delete} onClick={handleDellete}>
               Удалить
             </Button>
           )}
@@ -418,6 +429,15 @@ const EditBuilding = () => {
           </Button>
         </Box>
       </form>
+
+      {deleteModal && (
+        <DeleteModal
+          open={deleteModal}
+          handleClose={closeDelete}
+          item={building}
+          onDelete={onDelete}
+        />
+      )}
     </div>
   )
 }
