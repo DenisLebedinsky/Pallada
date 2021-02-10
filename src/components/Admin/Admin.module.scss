@@ -10,6 +10,20 @@
       color: #ffffff;
       font-family: Roboto, sans-serif;
     }
+
+    a {
+      text-decoration: none;
+      color: #ffffff;
+      font-family: Roboto, sans-serif;
+      font-weight: bold;
+
+      &:visited {
+        text-decoration: none;
+        color: #ffffff;
+        font-family: Roboto, sans-serif;
+      }
+    }
+
     .btn {
       color: #ffffff;
       font-family: Roboto, sans-serif;

@@ -7,6 +7,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import HomeIcon from '@material-ui/icons/Home'
 import LocationOnIcon from '@material-ui/icons/LocationOn'
 import MapIcon from '@material-ui/icons/Map'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import Districts from 'src/components/Admin/Districts'
@@ -58,6 +59,9 @@ export default function AdminTabs() {
     <div className={css.admin}>
       <div className={css.header}>
         <h1>Панель администратора</h1>
+        <Link className={css.link} href={'/'}>
+          На главную
+        </Link>
         <Button className={css.btn} onClick={logout}>
           выйти <ExitToAppIcon className={css.exit} />
         </Button>
