@@ -6,6 +6,7 @@ import Buildings from 'src/components/Buildings'
 import { Building } from 'src/components/Buildings/types'
 import { useSnackBars } from 'src/hooks/useSnackBars'
 import api from 'src/utils/api'
+import concatBuildings from 'src/utils/concat'
 import css from './NewBuildings.module.scss'
 
 const NewBuildings = () => {
@@ -34,7 +35,7 @@ const NewBuildings = () => {
       if (result?.data?.house) {
         //concat with current data
         if (result?.data?.house.length) {
-          const newBuildings = buildings.concat(result.data.house)
+          const newBuildings = concatBuildings(result.data.house, buildings)
 
           setBuildings(newBuildings)
           setOffset(offset + 20)

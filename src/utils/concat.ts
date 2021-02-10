@@ -14,7 +14,7 @@ export default function concatBuildings(buildings, existBuildings) {
   const newBuildings = existBuildings.slice()
 
   buildings.forEach((building) => {
-    if (newBuildings.find((item) => item.id === building)) {
+    if (newBuildings.find((item) => item.id === building.id)) {
       return
     }
 
