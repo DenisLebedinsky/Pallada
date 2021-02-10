@@ -20,25 +20,13 @@ const About: React.FC = () => {
         <div className={css.mainInfo}>
           <h1>Мы оказываем широкий спектр юридических услуг в сфере недвижимости</h1>
 
-          <Chip style={{ margin: 5 }} label='Помощь в оформлении документов' icon={<DoneIcon />} />
+          <Chip style={{ margin: 5 }} label='Оформление документов' icon={<DoneIcon />} />
           <Chip label='Подбор недвижимости' icon={<DoneIcon />} style={{ margin: 5 }} />
           <Chip style={{ margin: 5 }} label='Помощь при продаже' icon={<DoneIcon />} />
-          <Chip label='Помощь при получении кредита' icon={<DoneIcon />} style={{ margin: 5 }} />
-          <Chip
-            label='Помощь ипотеки для приобретения жилья'
-            icon={<DoneIcon />}
-            style={{ margin: 5 }}
-          />
-          <Chip
-            label='Помощь в освоении материнского капитала'
-            icon={<DoneIcon />}
-            style={{ margin: 5 }}
-          />
-          <Chip
-            label='Помощь в освоении жилищного сертификата'
-            icon={<DoneIcon />}
-            style={{ margin: 5 }}
-          />
+          <Chip label='Консультации по кредиту' icon={<DoneIcon />} style={{ margin: 5 }} />
+          <Chip label='Ипотека для приобретения жилья' icon={<DoneIcon />} style={{ margin: 5 }} />
+          <Chip label='Освоение материнского капитала' icon={<DoneIcon />} style={{ margin: 5 }} />
+          <Chip label='Освоении жилищного сертификата' icon={<DoneIcon />} style={{ margin: 5 }} />
           <Chip style={{ margin: 5 }} label='Оформление документов' icon={<DoneIcon />} />
         </div>
       </div>
@@ -54,7 +42,7 @@ const About: React.FC = () => {
 
       <div className={css.rowBottom}>
         <h3 className={css.text}>
-          Aгентство недвижимости «Паллада» – это надежность, гарантия и качество работы!
+          Aгенство недвижимости «Паллада» – это надежность, гарантия и качество работы!
         </h3>
 
         <Button variant='contained' className={css.button} onClick={() => setContactModal(true)}>
