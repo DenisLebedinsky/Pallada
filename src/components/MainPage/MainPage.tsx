@@ -127,7 +127,7 @@ const MainPage = () => {
         <div className={css.imageBlock}>
           <img src={require('public/pallada.png')} alt='pallada' className={css.label} />
           <h1 className={css.title}>Паллада</h1>
-          <h2 className={css.desc}>АГЕНСТВО НЕДВИЖИМОСТИ</h2>
+          <h2 className={css.desc}>АГЕНТСТВО НЕДВИЖИМОСТИ</h2>
         </div>
       </div>
       <img src={require('public/images/background.jpeg')} alt='Ейск' className={css.image} />

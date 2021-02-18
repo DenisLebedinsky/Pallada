@@ -26,8 +26,7 @@ const About: React.FC = () => {
           <Chip label='Консультации по кредиту' icon={<DoneIcon />} style={{ margin: 5 }} />
           <Chip label='Ипотека для приобретения жилья' icon={<DoneIcon />} style={{ margin: 5 }} />
           <Chip label='Освоение материнского капитала' icon={<DoneIcon />} style={{ margin: 5 }} />
-          <Chip label='Освоении жилищного сертификата' icon={<DoneIcon />} style={{ margin: 5 }} />
-          <Chip style={{ margin: 5 }} label='Оформление документов' icon={<DoneIcon />} />
+          <Chip label='Освоение жилищного сертификата' icon={<DoneIcon />} style={{ margin: 5 }} />
         </div>
       </div>
 
