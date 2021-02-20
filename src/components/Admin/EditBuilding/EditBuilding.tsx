@@ -88,7 +88,7 @@ const EditBuilding = () => {
   const loadData = async () => {
     if (!id) return
     try {
-      const res = await api.get(`/house/${id}`)
+      const res = await api.get(`/house/spec/${id}`)
 
       if (res.data) {
         const _building = res.data.house
