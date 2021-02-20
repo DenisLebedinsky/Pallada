@@ -1,4 +1,4 @@
-import { Button } from '@material-ui/core'
+import { Button, LinearProgress } from '@material-ui/core'
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
@@ -18,8 +18,10 @@ const BuildingsDetails = () => {
   const id = query.id
   const [contactModal, setContactModal] = useState(false)
   const [isAdmin, setIsAdmin] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   const loadData = async () => {
+    setIsLoading(true)
     try {
       const res = await api.get(`/house/${id}`)
 
@@ -28,6 +30,8 @@ const BuildingsDetails = () => {
       }
     } catch (e) {
       setError(true)
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -53,6 +57,33 @@ const BuildingsDetails = () => {
       })
     : []
 
+  if (!data && !isLoading) {
+    return (
+      <div className={css.buildingsDetails}>
+        <div className={css.header}>
+          <Button className={css.back} onClick={back}>
+            <KeyboardBackspaceIcon /> Назад
+          </Button>
+          <h1 className={css.title}>{'Не удалось загрузить данные'}</h1>
+        </div>
+      </div>
+    )
+  }
+
+  if (isLoading) {
+    return (
+      <div className={css.buildingsDetails}>
+        <div className={css.header}>
+          <Button className={css.back} onClick={back}>
+            <KeyboardBackspaceIcon /> Назад
+          </Button>
+
+          <LinearProgress color='secondary' />
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className={css.buildingsDetails}>
       <div className={css.header}>
@@ -70,6 +101,7 @@ const BuildingsDetails = () => {
             originalClass={'image-viewer'}
             showPlayButton={false}
             onErrorImageURL={makeImagePath('empty.jpg')}
+            showFullscreenButton={false}
           />
 
           <div className={css.secondRow}>
