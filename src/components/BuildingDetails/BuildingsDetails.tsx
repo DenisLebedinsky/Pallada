@@ -57,19 +57,6 @@ const BuildingsDetails = () => {
       })
     : []
 
-  if (!data && !isLoading) {
-    return (
-      <div className={css.buildingsDetails}>
-        <div className={css.header}>
-          <Button className={css.back} onClick={back}>
-            <KeyboardBackspaceIcon /> Назад
-          </Button>
-          <h1 className={css.title}>{'Не удалось загрузить данные'}</h1>
-        </div>
-      </div>
-    )
-  }
-
   if (isLoading) {
     return (
       <div className={css.buildingsDetails}>
