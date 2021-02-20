@@ -1,8 +1,6 @@
 import axios from 'axios'
-// import { OptionsObject, SnackbarKey, SnackbarMessage } from 'notistack'
+import Router from 'next/router'
 import { BASE_URL } from 'src/utils/secrets'
-
-// type ShowSnackbar = (message: SnackbarMessage, options?: OptionsObject) => SnackbarKey
 
 const api = axios.create({
   baseURL: BASE_URL,
@@ -16,25 +14,18 @@ api.interceptors.request.use(function (config) {
   return config
 })
 
-// const configureInterceptors = () => {
-//   api.interceptors.response.use(
-//     (config) => config,
-//     (error: AxiosError) => {
-//       if (error.message === 'Network Error') {
-//         console.log('REQUEST ERROR')
-//         // showSnackbar('Network Error', {
-//         //   variant: 'error',
-//         //   action: NotificationAction,
-//         // })
-//
-//         return
-//       }
-//
-//       return Promise.reject(error)
-//     }
-//   )
-// }
+api.interceptors.response.use(
+  (response) => {
+    return response
+  },
+  (error) => {
+    if (error.message == 'Request failed with status code 403') {
+      Router.push('/admin/login')
+      return
+    }
+
+    return Promise.reject(error)
+  }
+)
 
 export default api
-
-// export { configureInterceptors }

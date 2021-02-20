@@ -8,5 +8,3 @@ export const getAlbumPhoto = (key) =>
   key ? `${publicRuntimeConfig.API_STORAGE_URL}/Album/${key}` : ''
 
 export const getCaptchaSiteKey = () => publicRuntimeConfig.CAPTCHA_SITEKEY
-
-
