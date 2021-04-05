@@ -41,7 +41,7 @@ const About: React.FC = () => {
 
       <div className={css.rowBottom}>
         <h3 className={css.text}>
-          Aгенство недвижимости «Паллада» – это надежность, гарантия и качество работы!
+          Агентство недвижимости «Паллада» – это надежность, гарантия и качество работы!
         </h3>
 
         <Button variant='contained' className={css.button} onClick={() => setContactModal(true)}>
