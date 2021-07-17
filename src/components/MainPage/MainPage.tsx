@@ -9,6 +9,7 @@ import concatBuildings from 'src/utils/concat'
 import css from './MainPage.module.scss'
 
 const MainPage = () => {
+  const limit = 200
   const initialFilters: FiltersFields = {
     search: '',
     location: '',
@@ -88,6 +89,7 @@ const MainPage = () => {
         realtObjectId: filters.realtObject,
         deal: filters.activeDeal, //=== 'true',
         priceRange: filters.price,
+        limit,
       })
 
       if (result?.data?.house) {
@@ -95,7 +97,7 @@ const MainPage = () => {
         if (result?.data?.house.length) {
           const newBuildings = concatBuildings(result.data.house, buildings)
           setBuildings(newBuildings)
-          setOffset(offset + 20)
+          setOffset(offset + limit)
         } else {
           setHasMore(false)
         }
